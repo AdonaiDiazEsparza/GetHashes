@@ -64,6 +64,7 @@ def get_hashes_functions_from_dll(path_dll, algorithm="md5"):
                     'name': name,
                     'ordinal': ordinal,
                     'hash': hash_val,
+                    'algorithm': algorithm,
                     'rva': export.address
                 })
         
@@ -84,7 +85,7 @@ def find_functions(all_functions, functions_to_search):
             if name_to_search in hash_by_name:
                 func = hash_by_name[name_to_search]
                 ret_list.append(func)
-                print(f"[+] {func['name']} | Hash: {func['hash']} (Ordinal: {func['ordinal']})")
+                print(f"[+] {func['name']} | Hash: {func['hash']} (Ordinal: {func['ordinal']})  Algorithm: {func['algorithm']}  RVA:{func['rva']}")
             else:
                 print(f"[-] '{name_to_search}' | No encontrada en la DLL")
 
@@ -137,7 +138,7 @@ if __name__ == "__main__":
         print(" ================================================= ")
 
         for func in all_functions:
-            print(f"[*] {func['name']} → Hash: {func['hash']} (Ordinal: {func['ordinal']})")
+            print(f"[*] {func['name']} | Hash: {func['hash']} (Ordinal: {func['ordinal']}) Algorithm: {func['algorithm']}")
 
     # Cuando se da un .txt
     elif ".txt" in functions[0]:
@@ -175,4 +176,3 @@ if __name__ == "__main__":
     if args.save:
         save_in_json(functions_to_export, args.save)
 
-    
