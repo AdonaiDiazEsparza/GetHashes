@@ -173,6 +173,7 @@ if __name__ == "__main__":
         print(f"[*] Found: {len(functions_to_export)} of {len(functions)} functions")
 
     # Guardar en JSON
-    if args.save:
+    if args.save and len(functions_to_export) > 0:
         save_in_json(functions_to_export, args.save)
+
 
