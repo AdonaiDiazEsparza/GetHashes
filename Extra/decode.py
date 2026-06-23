@@ -2,7 +2,7 @@
 import argparse
 
 
-number_of_letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+number_of_letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890."
 
 
 def PlusOne(text:str):
